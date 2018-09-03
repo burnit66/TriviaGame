@@ -1,46 +1,3 @@
-//Set default time for the quiz question
-var timer = 30;
-
-//variable to keep the timer interval
-var timerInterval;
-
-//run the timer with the interval
-function runTimer() {
-    clearInterval(timerInterval)
-    timerInterval = setInterval(timeDown, 1000)
-}
-
-//increment the timer
-function timeDown() {
-    timer--
-
-    $(".timer").text(timer)
-
-    //if the timer hits 0 - do somthing
-    if (timer === 0) {
-        nextQuestion()
-        restartTimer()
-        alert("You ran out of time!")
-    }
-}
-
-//stop the timer by clearng the timeout 
-function stopTimer() {
-    clearInterval(timerInterval)
-}
-
-function restartTimer() {
-    timer = 30;
-}
-
-
-
-
-
-
-
-
-
 //set the questions in an object or array
 //set question as object, name the key as correct answer, check to see if the text of the this click event is equal to question.correct
 var question1 = {
@@ -83,11 +40,6 @@ var question5 = {
     a4: "Answer 4"
 }
 
-
-
-
-
-
 //global variables
 //questionArray of the objects
 var questionArray = [question1, question2, question3, question4, question5]
@@ -97,12 +49,41 @@ var score = 0;
 var possible = questionArray.length;
 //quiz index to know what number we are on
 var quizIndex = 0;
+//Set default time for the quiz question
+var timer = 30;
+//variable to keep the timer interval
+var timerInterval;
 
 
 
+//run the timer with the interval
+function runTimer() {
+    clearInterval(timerInterval)
+    timerInterval = setInterval(timeDown, 1000)
+}
 
+//increment the timer
+function timeDown() {
+    timer--
 
+    $(".timer").text(timer)
 
+    //integrate the timer functionality into the quiz
+    if (timer === 0) {
+        nextQuestion()
+        restartTimer()
+        alert("You ran out of time!")
+    }
+}
+
+//stop the timer by clearng the timeout 
+function stopTimer() {
+    clearInterval(timerInterval)
+}
+
+function restartTimer() {
+    timer = 30;
+}
 
 
 //shuffle the questions in the questions array
@@ -120,12 +101,6 @@ var shuffle = function (array) {
     }
     return array;
 }
-
-
-
-
-
-
 
 
 //display the possible answer choices for the questions
@@ -149,8 +124,9 @@ var renderQuestion = function () {
 
 
 //function to check for the end of the game
+//quiz ends and we need to display the quiz score out of the possible correct
 var checkEnd = function () {
-    if (quizIndex > 5) {
+    if (quizIndex > 4) {
         $(".qContainer").hide()
         $(".endGame").show()
 
@@ -161,13 +137,13 @@ var checkEnd = function () {
 }
 
 
-
-
 //let the user pick an answer 
 //check to see if the answer is correct
 //update the score behind the scences
 $(document).on("click", "p", function () {
     var userInput = $(this).text()
+
+    console.log(quizIndex)
 
     if (userInput === questionArray[quizIndex].correct) {
         score += 1
@@ -186,13 +162,3 @@ var nextQuestion = function () {
 
 renderQuestion()
 runTimer()
-
-
-
-
-
-
-
-//quiz ends and we need to display the quiz score out of the possible correct
-
-//integrate the timer functionality into the quiz
