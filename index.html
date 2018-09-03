@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Trivia</title>
@@ -18,18 +19,20 @@
 
         <div class="qContainer">
             <h3 class="question"></h3>
-            <span class="timer"></span>
+            <h4 class="timeContainer">Timer: <span class="timer"></span></h4>
 
-            <p class="answer1"></p>
-            <p class="answer2"></p>
-            <p class="answer3"></p>
-            <p class="answer4"></p>
+            <p class="answer1 answer"></p>
+            <p class="answer2 answer"></p>
+            <p class="answer3 answer"></p>
+            <p class="answer4 answer"></p>
         </div>
 
 
         <div class="endGame">
-            <h3>End of the Game!</h3>
-            <p class="score"></p>
+            <h3 class="end">End of the Game!</h3>
+            <h4 class="score"></h4>
+
+            <button class="restart">Restart?</button>
         </div>
 
     </div>

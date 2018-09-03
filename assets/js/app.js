@@ -1,43 +1,43 @@
 //set the questions in an object or array
 //set question as object, name the key as correct answer, check to see if the text of the this click event is equal to question.correct
 var question1 = {
-    q: "Question 1",
-    correct: "Correct 1",
-    a2: "Answer 2",
-    a3: "Answer 3",
-    a4: "Answer 4"
+    q: "What is the largest planet in our Solar System?",
+    correct: "Jupiter",
+    a2: "Earth",
+    a3: "Saturn",
+    a4: "Venus"
 }
 
 var question2 = {
-    q: "Question 2",
-    correct: "Correct 2",
-    a2: "Answer 2",
-    a3: "Answer 3",
-    a4: "Answer 4"
+    q: "Which of these cities is closest to London, UK?",
+    correct: "Boston, MA",
+    a2: "New York, NY",
+    a3: "Atlanta, GA",
+    a4: "Miami, FL"
 }
 
 var question3 = {
-    q: "Question 3",
-    correct: "Correct 3",
-    a2: "Answer 2",
-    a3: "Answer 3",
-    a4: "Answer 4"
+    q: "What temperature is the same in Celsius and Fahrenheit?",
+    correct: "-40",
+    a2: "40",
+    a3: "0",
+    a4: "100"
 }
 
 var question4 = {
-    q: "Question 4",
-    correct: "Correct 4",
-    a2: "Answer 2",
-    a3: "Answer 3",
-    a4: "Answer 4"
+    q: "What is the color of Donald Duck's bowtie?",
+    correct: "Red",
+    a2: "Green",
+    a3: "Blue",
+    a4: "Yellow"
 }
 
 var question5 = {
-    q: "Question 5",
-    correct: "Correct 5",
-    a2: "Answer 2",
-    a3: "Answer 3",
-    a4: "Answer 4"
+    q: "How many blue stripes are there on the American flag?",
+    correct: "0",
+    a2: "13",
+    a3: "7",
+    a4: "9"
 }
 
 //global variables
@@ -153,12 +153,23 @@ $(document).on("click", "p", function () {
     }
 })
 
+//iterate to the next question - restart the timer - check if its the end of the game 
 var nextQuestion = function () {
     quizIndex++
     restartTimer()
     checkEnd()
     renderQuestion()
 }
+
+//create function to restart the game and attach it to the restart button - store in variable to make global scope
+var restartFunction = $(document).on("click", ".restart", function () {
+    $(".endGame").hide()
+    $(".qContainer").show()
+    quizIndex = 0
+    score = 0
+    restartTimer()
+    renderQuestion()
+})
 
 renderQuestion()
 runTimer()
