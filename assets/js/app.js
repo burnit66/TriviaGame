@@ -50,7 +50,7 @@ var possible = questionArray.length;
 //quiz index to know what number we are on
 var quizIndex = 0;
 //Set default time for the quiz question
-var timer = 30;
+var timer = 15;
 //variable to keep the timer interval
 var timerInterval;
 
@@ -82,7 +82,7 @@ function stopTimer() {
 }
 
 function restartTimer() {
-    timer = 30;
+    timer = 15;
 }
 
 
@@ -147,8 +147,10 @@ $(document).on("click", "p", function () {
 
     if (userInput === questionArray[quizIndex].correct) {
         score += 1
+        alert("Correct! You are " + score + " for " + possible)
         nextQuestion()
     } else {
+        alert("Sorry, that wasn't right. You are " + score + " for " + possible)
         nextQuestion()
     }
 })
