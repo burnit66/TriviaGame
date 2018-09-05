@@ -150,7 +150,7 @@ $(document).on("click", "p", function () {
         alert("Correct! You are " + score + " for " + possible)
         nextQuestion()
     } else {
-        alert("Sorry, that wasn't right. You are " + score + " for " + possible)
+        alert("Sorry, that wasn't right. The correct answer was " + questionArray[quizIndex].correct + " You are " + score + " for " + possible)
         nextQuestion()
     }
 })
